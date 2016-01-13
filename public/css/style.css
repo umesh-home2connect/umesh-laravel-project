@@ -1,0 +1,67 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 23 Dec, 2015, 2:03:29 PM
+    Author     : calipus
+*/
+
+.border-form {
+    border: 2px solid #ccc;
+    padding: 40px;
+}
+input.error
+{
+	background: #FBE3E4;
+	border-top: 1px solid #e1b2b3;
+	border-left: 1px solid #e1b2b3;
+	border-right: 1px solid #FBC2C4;
+	border-bottom: 1px solid #FBC2C4;
+}
+
+ input.success
+{
+	background: #E6EFC2;
+	border-top: 1px solid #cebb98;
+	border-left: 1px solid #cebb98;
+	border-right: 1px solid #c6d880;
+	border-bottom: 1px solid #c6d880;
+}
+
+ input.warning
+{
+	background: #fff3b3;
+	border-top: 1px solid #cebb98;
+	border-left: 1px solid #cebb98;
+	border-right: 1px solid #c6d880;
+	border-bottom: 1px solid #c6d880;
+}
+
+ span.error
+{
+	margin: 8px 0 0 0;
+	padding: 0;
+	height: 1%;
+	
+	color: #FF0000;
+}
+
+span.success
+{
+	margin: 8px 0 0 0;
+	padding: 0;
+	height: 1%;
+	
+	color: #7b912b;
+}
+
+label.error
+{
+	margin: 8px 0 0 0;
+	padding: 0;
+	height: 1%;
+	display: block;
+	color: #FF0000;
+}
