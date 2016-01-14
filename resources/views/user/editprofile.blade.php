@@ -88,6 +88,33 @@
                 <h3>Use of DOMPDF </h3>
                 <a href="pdf">click here to ganerate pdf</a>
             </div>
+            <div class="col-md-8 col-md-offset-3">
+                <h3>Current user Session Detail</h3>
+                <?php
+                $value = Session::get('client_session_array');
+                ?>
+                <ul>
+                    <li>
+                        <?php
+                            echo "User Type : ".$value['user_type'];
+                        ?>
+                    </li>
+                    <li>
+                        <?php  echo "User Id : ".$value['user_id']; ?>
+                    </li>
+                    <li>
+                        <?php echo "User Name : ".$value['name']; ?>
+                    </li>
+                    <li>
+                        <?php echo "User Email : ".$value['email']; ?>
+                    </li>
+                    
+                </ul>
+  
+              
+                
+              
+            </div>
            
         </div>
     </div>

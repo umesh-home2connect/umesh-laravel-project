@@ -50,6 +50,14 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('/editprofile','User\EditProfileController@index');
     Route::post('/editprofile','User\EditProfileController@index');
     Route::get('/pdf', 'PdfController@invoice');
+     
+    Route::get('fileentry', 'FileEntryController@index');
+    Route::get('fileentry/get/{filename}', [
+	'as' => 'getentry', 'uses' => 'FileEntryController@get']);
+    Route::post('fileentry/add',[ 
+        'as' => 'addentry', 'uses' => 'FileEntryController@add']);
+    Route::get('fileentry/delete/{filename}',['as' => 'deleteentry', 'uses' => 'FileEntryController@delete']);
+    
     
     Route::resource('demo','DemoController');
     //Since we’re using Route::resource, we get index, show, create, edit, update, store, and destroy routes defined for us.

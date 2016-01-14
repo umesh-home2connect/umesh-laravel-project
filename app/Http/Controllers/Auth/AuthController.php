@@ -1,8 +1,9 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
-
 use App\User;
+use App\userDetail;
+use Carbon\Carbon;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
@@ -61,10 +62,15 @@ class AuthController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
-            'name'     => $data['name'],
-            'email'    => $data['email'],
+        $user = User::create([
+            'name' => $data['name'],
+            'email' => $data['email'],
             'password' => bcrypt($data['password']),
+            'user_type' => $data['user_type']
         ]);
+        
+         $userdata = ['user_id' => $user->id,'phone_number' => '9888888888','login_time' => Carbon::now()];
+         $userdetail = userDetail::create($userdata);
+         return $user;
     }
 }

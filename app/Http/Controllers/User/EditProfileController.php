@@ -139,15 +139,11 @@ class EditProfileController extends Controller
               $priceLib = new PriceLibrary();
               $prices = $priceLib->getPrices();
               
-//            $pdf = App::make('dompdf.wrapper');
-//            $pdf->loadHTML('<h1>Test</h1>');
-//             return $pdf->stream();
-             
-//             $pdf = PDF::loadView('pdf.invoice', $data);
-//            return $pdf->download('invoice.pdf');
-            
-//            return PDF::loadFile(public_path().'/myfile.html')->save(public_path().'/myfile/my_stored_file.pdf')->stream('download.pdf');
-
+              
+//               $value = $request->session()->get('client_session_array');
+//               $user_type = $value['user_type'];
+//               dd($user_type);
+              
           return view('user/editprofile', ['userdetail' => $userdetail, 'pagedetail' => $pagedetail,'prices' => $prices]);
          }
     }

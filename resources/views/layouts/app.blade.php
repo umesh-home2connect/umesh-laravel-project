@@ -57,6 +57,7 @@
                 <ul class="nav navbar-nav">
                     <li><a href="{{ url('/home') }}">Home</a></li>
                     <li><a href="{{ url('/editprofile') }}">Edit Profile</a></li>
+                    <li><a href="{{ url('/fileentry') }}">File Upload/Download/Delete</a></li>
                     <li><a>
                           <?php $lang = ['en'=> 'Choose Language'] ?>
                     {{ Form::open(['action' => 'HomeController@postChangeLanguage']) }}
