@@ -27,7 +27,7 @@
     },
     "autoload": {
         "classmap": [
-            "database"
+            "database"           
         ],
         "files": [
 		"app/Http/helpers.php"

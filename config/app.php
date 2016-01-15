@@ -171,7 +171,7 @@ return [
          * Packages service providers...
          */
         Laraveldaily\Timezones\TimezonesServiceProvider::class,
-        Laraveldaily\Quickadmin\QuickadminServiceProvider::class,
+       // Laraveldaily\Quickadmin\QuickadminServiceProvider::class,
     ],
 
     /*

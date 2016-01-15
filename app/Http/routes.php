@@ -36,38 +36,77 @@
 |
 */
 
-Route::group(['middleware' => ['web']], function () {
-    Route::get('/', function () {
-    return view('welcome');
-    });
-    Route::auth();
-    
-//    Route::controllers([
-//                        'password' => 'Auth\PasswordController',
-//                    ]);
-    Route::get('/home','HomeController@index');
-    Route::post('/home','HomeController@postChangeLanguage');
-    Route::get('/editprofile','User\EditProfileController@index');
-    Route::post('/editprofile','User\EditProfileController@index');
-    Route::get('/pdf', 'PdfController@invoice');
-     
-    Route::get('fileentry', 'FileEntryController@index');
-    Route::get('fileentry/get/{filename}', [
-	'as' => 'getentry', 'uses' => 'FileEntryController@get']);
-    Route::post('fileentry/add',[ 
-        'as' => 'addentry', 'uses' => 'FileEntryController@add']);
-    Route::get('fileentry/delete/{filename}',['as' => 'deleteentry', 'uses' => 'FileEntryController@delete']);
-    
-    
-    Route::resource('demo','DemoController');
-    //Since we’re using Route::resource, we get index, show, create, edit, update, store, and destroy routes defined for us.
-    Route::get('/tasks', 'TaskController@index');
-    Route::post('/task', 'TaskController@store');
-    Route::delete('/task/{task}', 'TaskController@destroy');
-    //AdminController routing
+//Route::group(['middleware' => ['web']], function () {
+//    Route::get('/', function () {
+//    return view('welcome');
+//    });
+//    Route::auth();
+//    
+////    Route::controllers([
+////                        'password' => 'Auth\PasswordController',
+////                    ]);
+//    Route::get('/home','HomeController@index');
+//    Route::post('/home','HomeController@postChangeLanguage');
+//    Route::get('/editprofile','User\EditProfileController@index');
+//    Route::post('/editprofile','User\EditProfileController@index');
+//    Route::get('/pdf', 'PdfController@invoice');
+//     
+//    Route::get('fileentry', 'FileEntryController@index');
+//    Route::get('fileentry/get/{filename}', [
+//	'as' => 'getentry', 'uses' => 'FileEntryController@get']);
+//    Route::post('fileentry/add',[ 
+//        'as' => 'addentry', 'uses' => 'FileEntryController@add']);
+//    Route::get('fileentry/delete/{filename}',['as' => 'deleteentry', 'uses' => 'FileEntryController@delete']);
+//    
+//    
+//    Route::resource('demo','DemoController');
+//    //Since we’re using Route::resource, we get index, show, create, edit, update, store, and destroy routes defined for us.
+//    Route::get('/tasks', 'TaskController@index');
+//    Route::post('/task', 'TaskController@store');
+//    Route::delete('/task/{task}', 'TaskController@destroy');
+//    //AdminController routing
 //    Route::get('/admin', 'Admin\AdminController@index');
 //    Route::get('/admin/create', 'Admin\AdminController@create');
 //    Route::post('/admin', 'Admin\AdminController@store');
 ////    Route::post('/admin', 'Admin\AdminController@test');
 //      Route::get('/admin/test', 'Admin\AdminController@test');
-});
+//});
+
+
+	Route::group(['middleware' => ['web']], function () {
+                        
+                        Route::get('/', function () {
+                         return view('welcome');
+                        });
+			Route::auth();	
+                        
+                        Route::group(['namespace' => 'Admin'], function()
+				{
+                                    Route::get('/admin', 'AdminController@index');
+                                    Route::get('/admin/create', 'AdminController@create');
+                                    Route::post('/admin', 'AdminController@store');
+                                    Route::get('/admin/test', 'AdminController@test');
+      
+				});
+
+			Route::group(['namespace' => 'User'], function() 
+                                {
+                                    
+                                    Route::get('/editprofile','EditProfileController@index');
+                                    Route::post('/editprofile','EditProfileController@index');
+                                });
+                                
+                        Route::resource('demo','DemoController');  //Since we’re using Route::resource, we get index, show, create, edit, update, store, and destroy routes defined for us.
+                        Route::get('/tasks', 'TaskController@index');
+                        Route::post('/task', 'TaskController@store');
+                        Route::delete('/task/{task}', 'TaskController@destroy');
+
+                        Route::get('fileentry', 'FileEntryController@index');
+                        Route::get('fileentry/get/{filename}', ['as' => 'getentry', 'uses' => 'FileEntryController@get']);
+                        Route::post('fileentry/add',['as' => 'addentry', 'uses' => 'FileEntryController@add']); 
+                        Route::get('fileentry/delete/{filename}',['as' => 'deleteentry', 'uses' => 'FileEntryController@delete']);
+
+                        Route::get('/pdf', 'PdfController@invoice');
+                        Route::get('/home','HomeController@index');
+                        Route::post('/home','HomeController@postChangeLanguage');
+			});
