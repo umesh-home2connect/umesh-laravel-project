@@ -1,7 +1,7 @@
 <?php
 
 namespace App;
-
+use Laravel\Cashier\Billable;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Auth\Passwords\CanResetPassword;
@@ -17,7 +17,7 @@ class User extends Model implements AuthenticatableContract,
                                     CanResetPasswordContract
 {
     use Authenticatable, Authorizable, CanResetPassword, AdminPermissionsTrait;
-
+    use Billable;
     /**
      * The database table used by the model.
      *

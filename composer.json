@@ -14,7 +14,8 @@
         "intervention/image": "^2.3",
         "laraveldaily/quickadmin": "^1.0",
         "barryvdh/laravel-debugbar": "^2.1",
-        "barryvdh/laravel-dompdf": "^0.6.1"
+        "barryvdh/laravel-dompdf": "^0.6.1",
+        "laravel/cashier": "^6.0"
       
     },
     "require-dev": {

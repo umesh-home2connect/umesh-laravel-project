@@ -156,6 +156,7 @@ return [
         Intervention\Image\ImageServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
         Barryvdh\DomPDF\ServiceProvider::class,
+        Laravel\Cashier\CashierServiceProvider::class,
         
 
         /*
